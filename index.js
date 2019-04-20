@@ -1,5 +1,4 @@
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
-const Discovery = require('watson-developer-cloud/discovery/v1');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -18,13 +17,6 @@ const assistant = new AssistantV1({
   url: 'https://gateway.watsonplatform.net/assistant/api/',
   version: '2018-02-16',
 });
-
-const discovery = new Discovery({
-  version: '2018-08-01',
-  iam_apikey: process.env.API_KEY_DISCOVERY
-});
-
-const async = require('async');
 
 app.post('/conversation/', (req, res) => {
   const input = {
