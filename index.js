@@ -1,13 +1,13 @@
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors')({ origin: true });
 require('dotenv').config();
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 8080;
 
